@@ -4003,6 +4003,8 @@ fn handle_event_loop<T: UserEvent>(
 
     Event::LoopDestroyed => {
       callback(RunEvent::Exit);
+
+      *control_flow = ControlFlow::Exit;
     }
 
     #[cfg(windows)]
